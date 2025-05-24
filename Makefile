@@ -22,14 +22,14 @@ RESET		:= $(shell tput sgr0)
 
 # Program name
 ifeq ($(MAKECMDGOALS),bonus)
-NAME_BONUS	:=	fractol
+NAME_BONUS	:= fractol
 else
-NAME		:=	fractol
+NAME		:= fractol
 endif
 
 # Compiler flags
-CC			:=	cc
-CFLAGS		:=	-Wextra -Wall -Werror
+CC		:= cc
+CFLAGS		:= -Wextra -Wall -Werror
 
 # Directories
 OBJ_DIR		:= obj
@@ -41,37 +41,37 @@ DEP_DIR		:= $(OBJ_DIR)/.deps
 DEPFLAGS	= -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 
 # Libraries
-LIBFT_DIR	:=	./libft
-LIBFT		:=	$(LIBFT_DIR)/libft.a
+LIBFT_DIR	:= ./libft
+LIBFT		:= $(LIBFT_DIR)/libft.a
 
-MLX_PATH	:=	./MLX42/build/
-MLX_NAME	:=	libmlx42.a
+MLX_PATH	:= ./MLX42/build/
+MLX_NAME	:= libmlx42.a
 MLX_BPATH	:= ./MLX42/
-MLX			:=	$(MLX_PATH)$(MLX_NAME)
+MLX		:= $(MLX_PATH)$(MLX_NAME)
 
 # Additional flags
-LDFLAGS		:=	-L$(LIBFT_DIR) -lft -L$(MLX_PATH) -lmlx42 \
-				-lglfw -lXext -lX11 -lm -ldl -pthread
+LDFLAGS		:= -L$(LIBFT_DIR) -lft -L$(MLX_PATH) -lmlx42 \
+		-lglfw -lXext -lX11 -lm -ldl -pthread
 
 # Include paths
-INC			:= -I./include -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
+INC		:= -I./include -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
 INC_BONUS	:= -I./include_bonus -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
 
 # Sources
-SRCS		:=	fractol.c color.c zoom.c utils.c init.c julia.c \
-				mandelbrot.c burningship.c keys.c julia_utils.c
+SRCS		:= fractol.c color.c zoom.c utils.c init.c julia.c \
+		mandelbrot.c burningship.c keys.c julia_utils.c
 
-SRCS_BONUS	:=	fractol_bonus.c color_bonus.c zoom_bonus.c \
-				utils_bonus.c init_bonus.c julia_bonus.c \
-				mandelbrot_bonus.c burningship_bonus.c \
-				keys_bonus.c julia_utils_bonus.c
+SRCS_BONUS	:= fractol_bonus.c color_bonus.c zoom_bonus.c \
+		utils_bonus.c init_bonus.c julia_bonus.c \
+		mandelbrot_bonus.c burningship_bonus.c \
+		keys_bonus.c julia_utils_bonus.c
 
 ifeq ($(MAKECMDGOALS),bonus)
-OBJS_BONUS	:=	$(addprefix $(OBJ_DIR)/,$(SRCS_BONUS:.c=.o))
-TOTAL_SRCS	:=	$(words $(SRCS_BONUS))
+OBJS_BONUS	:= $(addprefix $(OBJ_DIR)/,$(SRCS_BONUS:.c=.o))
+TOTAL_SRCS	:= $(words $(SRCS_BONUS))
 else
-OBJS		:=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
-TOTAL_SRCS	:=	$(words $(SRCS))
+OBJS		:= $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
+TOTAL_SRCS	:= $(words $(SRCS))
 endif
 
 
@@ -109,7 +109,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
 	@$(CC) $(CFLAGS) $(DEPFLAGS) -O3 -march=native -ffast-math -c $< -o $@ $(INC)
 
 # ################################################# #
-#					BONUS RULES						#
+#                    BONUS RULES                    #
 # ################################################# #
 bonus:
 	@if [ -f $(NAME_BONUS) ] && $(MAKE) -qs $(NAME_BONUS); then \
@@ -133,7 +133,6 @@ $(OBJ_DIR)/%.o: $(SRC_B_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
 	@$(CC) $(CFLAGS) $(DEPFLAGS) -O3 -march=native -ffast-math -c $< -o $@ $(INC_BONUS)
 endif
 
-######################################################
 # Include auto-generated dependency files
 -include $(wildcard $(DEP_DIR)/*.d)
 
