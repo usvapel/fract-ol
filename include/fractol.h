@@ -25,7 +25,7 @@
 # define JULIAWIDTH 320
 # define JULIAHEIGHT 320
 
-typedef struct s_julia
+typedef struct		s_julia
 {
 	long double	rc;
 	long double	ic;
@@ -37,9 +37,9 @@ typedef struct s_julia
 	int32_t		max_iter;
 	mlx_image_t	*jimg;
 	uint32_t	palette[256];
-}				t_julia;
+}			t_julia;
 
-typedef struct s_fractal
+typedef struct		s_fractal
 {
 	long double	rc;
 	long double	ic;
@@ -63,7 +63,7 @@ typedef struct s_fractal
 	char		*set;
 	uint32_t	palette[256];
 	t_julia		*j;
-}				t_fractal;
+}			t_fractal;
 
 // Drawing
 void			draw_mandelbrot(void *param);
