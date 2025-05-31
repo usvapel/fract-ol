@@ -1,16 +1,37 @@
-# fract-ol
+![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
+![MLX42](https://img.shields.io/badge/MLX42-OpenGL%2FGLFW-blue)
 
-> [!NOTE]  
-> This is extra info or a friendly reminder.
+# 🌀 Fractal Visualizer
 
-> [!TIP]  
-> A handy shortcut or best practice.
+**Fract-ol** is a fractal visualizer written in C using [MLX42](https://github.com/codam-coding-college/MLX42), a simple cross-platform graphics library running on GLFW and OpenGL.
 
-> [!CAUTION]  
-> Heads-up—something here can break things if you’re not careful!
+## ✨ Features
 
-> [!IMPORTANT]  
-> Critical info everyone **must** read before continuing
+- Interactive rendering of:
+  - Mandelbrot set
+  - Julia set
+  - Burning Ship fractal
+- Real-time mouse interaction
+- Smooth zooming and panning
+- Dynamic color shifting
 
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks
+## 📸 Preview
+
+![Fractol Screenshot](./screenshot.png)
+
+## ⚙️ Requirements
+
+- macOS or Linux
+- Dependencies:
+  - `cmake`
+  - `glfw`
+  - `OpenGL`
+
+## 🧰 Installation
+
+Clone the repo and build:
+
+```bash
+git clone https://github.com/usvapel/fract-ol.git
+cd fract-ol
+make
