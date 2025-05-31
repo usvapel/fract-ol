@@ -40,7 +40,7 @@ The project is part of the 42 school curriculum
   <strong><em>Iteration Formula</em></strong><br>
 </div>
 
-The core of each fractal lies in an iterative function applied to each pixel mapped to the complex plane. For the Mandelbrot set, the formula is:
+The core of each fractal lies in an iterative function applied to each pixel mapped onto the complex plane. For the Mandelbrot set, the formula is:
 
 ![Mandelbrot Equation](https://latex.codecogs.com/png.image?\dpi{150}&space;\color{White}z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi)
 
