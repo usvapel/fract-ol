@@ -19,9 +19,9 @@ The project is a part of 42 school curriculum
 ## 📸 Preview
 
 <div style="display: flex; gap: 10px; align-items: center;">
-  <img src="./screenshot1.png" width="200" />
   <img src="./screenshot2.png" width="200" />
-  <img src="./screenshot3.png" width="200" />
+  <img src="./screenshot4.png" width="200" />
+  <img src="./screenshot5.png" width="200" />
 </div>
 
 <div style="
@@ -36,9 +36,11 @@ The project is a part of 42 school curriculum
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 ">
   <strong><em>Iteration Formula:</em></strong><br>
-    z<sub>n+1</sub> = z<sub>n</sub><sup>2</sup> + C,&nbsp;&nbsp; z<sub>0</sub> = C,&nbsp;&nbsp; C = a + b<em>i</em>
-  </code>
 </div>
+
+![Mandelbrot Equation](https://latex.codecogs.com/png.image?\dpi{150}&space;\color{White}z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi)
+
+The difference between this calculation and that for the Burningship fractal is that the real and imaginary components are set to their respective absolute values before squaring at each iteration
 
 ## ⚙️ Requirements
 
