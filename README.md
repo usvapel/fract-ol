@@ -17,11 +17,27 @@
 
 ## 📸 Preview
 
-<p float="left">
+<div style="display: flex; gap: 10px; align-items: center;">
   <img src="./screenshot1.png" width="200" />
   <img src="./screenshot2.png" width="200" />
   <img src="./screenshot3.png" width="200" />
-</p>
+</div>
+
+<div style="
+  background-color: #f6f8fa;
+  padding: 20px 24px;
+  border-left: 6px solid #00599C;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin-top: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+">
+  <strong><em>Iteration Formula:</em></strong><br>
+    z<sub>n+1</sub> = z<sub>n</sub><sup>2</sup> + C,&nbsp;&nbsp; z<sub>0</sub> = C,&nbsp;&nbsp; C = a + b<em>i</em>
+  </code>
+</div>
 
 ## ⚙️ Requirements
 
