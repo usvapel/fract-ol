@@ -1,4 +1,6 @@
-![C](https://img.shields.io/badge/C-00599C?style=flat&logo=c&logoColor=white)
+![C](https://img.shields.io/badge/C-language-00599C?style=flat)
+
+
 ![MLX42](https://img.shields.io/badge/MLX42-OpenGL%2FGLFW-blue)
 
 # 🌀 Fractal Visualizer
@@ -8,13 +10,14 @@ The project is a part of 42 school curriculum
 
 ## ✨ Features
 
-- Interactive rendering of:
+- This application supports real-time rendering and interaction with a selection of well-known fractals:
   - Mandelbrot set
   - Julia set
   - Burning Ship fractal
-- Real-time mouse interaction
-- Smooth zooming and panning
-- Dynamic color shifting
+- Additional interactive capabilities include:
+  - Real-time mouse interaction
+  - Smooth zooming and panning
+  - Dynamic color shifting
 
 ## 📸 Preview
 
@@ -35,12 +38,14 @@ The project is a part of 42 school curriculum
   margin-top: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 ">
-  <strong><em>Iteration Formula:</em></strong><br>
+  <strong><em>Iteration Formula</em></strong><br>
 </div>
+
+The core of each fractal lies in an iterative function applied to each pixel mapped to the complex plane. For the Mandelbrot set, the formula is:
 
 ![Mandelbrot Equation](https://latex.codecogs.com/png.image?\dpi{150}&space;\color{White}z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi)
 
-The difference between this calculation and that for the Burningship fractal is that the real and imaginary components are set to their respective absolute values before squaring at each iteration
+For the Burning Ship fractal, a slight modification is made: the real and imaginary components of the complex number are converted to their absolute values before squaring at each iteration, resulting in its characteristic shape.
 
 ## ⚙️ Requirements
 
