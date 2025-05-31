@@ -21,11 +21,7 @@ WHITE		:= $(shell tput setaf 7)
 RESET		:= $(shell tput sgr0)
 
 # Program name
-ifeq ($(MAKECMDGOALS),bonus)
-NAME_BONUS	:= fractol
-else
 NAME		:= fractol
-endif
 
 # Compiler flags
 CC		:= cc
@@ -34,7 +30,6 @@ CFLAGS		:= -Wextra -Wall -Werror
 # Directories
 OBJ_DIR		:= obj
 SRC_DIR		:= src
-SRC_B_DIR	:= src_bonus
 
 # Dependencies tracking
 DEP_DIR		:= $(OBJ_DIR)/.deps
@@ -55,25 +50,13 @@ LDFLAGS		:= -L$(LIBFT_DIR) -lft -L$(MLX_PATH) -lmlx42 \
 
 # Include paths
 INC		:= -I./include -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
-INC_BONUS	:= -I./include_bonus -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
 
 # Sources
 SRCS		:= fractol.c color.c zoom.c utils.c init.c julia.c \
 		mandelbrot.c burningship.c keys.c julia_utils.c
 
-SRCS_BONUS	:= fractol_bonus.c color_bonus.c zoom_bonus.c \
-		utils_bonus.c init_bonus.c julia_bonus.c \
-		mandelbrot_bonus.c burningship_bonus.c \
-		keys_bonus.c julia_utils_bonus.c
-
-ifeq ($(MAKECMDGOALS),bonus)
-OBJS_BONUS	:= $(addprefix $(OBJ_DIR)/,$(SRCS_BONUS:.c=.o))
-TOTAL_SRCS	:= $(words $(SRCS_BONUS))
-else
 OBJS		:= $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 TOTAL_SRCS	:= $(words $(SRCS))
-endif
-
 
 # Calculating SRCS amount
 COMPILED_COUNT	:= 0
@@ -107,31 +90,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
 	@printf "🔧 [%3d%%] $(BOLD)$(BLUE)Compiling $<...$(RESET)\n" \
 		$(shell echo $$(($(COMPILED_COUNT)*100/$(TOTAL_SRCS))))
 	@$(CC) $(CFLAGS) $(DEPFLAGS) -O3 -march=native -ffast-math -c $< -o $@ $(INC)
-
-# ################################################# #
-#                    BONUS RULES                    #
-# ################################################# #
-bonus:
-	@if [ -f $(NAME_BONUS) ] && $(MAKE) -qs $(NAME_BONUS); then \
-		echo "$(BOLD)$(YELLOW)🔄 $(NAME_BONUS) is already up to date.$(RESET)"; \
-	else \
-		echo "$(BOLD)$(WHITE)🌀 Starting to build $(NAME_BONUS)...$(RESET)"; \
-		$(MAKE) -s $(NAME_BONUS) MAKECMDGOALS=bonus --no-print-directory; \
-		echo "$(BOLD)$(GREEN)✅ All components built successfully!$(RESET)"; \
-	fi
-
-$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT) $(MLX)	
-	@echo "$(BOLD)$(GREEN)🔗 Linking $(NAME_BONUS) Bonus...$(RESET)"
-	@$(CC) $(CFLAGS) -o $@ $(OBJS_BONUS) $(LDFLAGS) -O3 -march=native -ffast-math
-	@echo "$(BOLD)$(GREEN)✅ Bonus $(NAME_BONUS) Successfully compiled!$(RESET)"
-
-ifeq ($(MAKECMDGOALS),bonus)
-$(OBJ_DIR)/%.o: $(SRC_B_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
-	$(eval COMPILED_COUNT := $(shell echo $$(($(COMPILED_COUNT)+1))))
-	@printf "🔧 [%3d%%] $(BOLD)$(BLUE)Compiling $<...$(RESET)\n" \
-		$(shell echo $$(($(COMPILED_COUNT)*100/$(TOTAL_SRCS))))
-	@$(CC) $(CFLAGS) $(DEPFLAGS) -O3 -march=native -ffast-math -c $< -o $@ $(INC_BONUS)
-endif
 
 # Include auto-generated dependency files
 -include $(wildcard $(DEP_DIR)/*.d)
@@ -174,5 +132,5 @@ re: fclean
 	@$(MAKE) -s all
 
 # Prevent intermediate files from being deleted
-.SECONDARY: $(OBJS) $(OBJS_BONUS)
-.PHONY: all clean fclean re bonus
+.SECONDARY: $(OBJS)
+.PHONY: all clean fclean re
