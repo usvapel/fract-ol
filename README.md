@@ -5,7 +5,7 @@
 # 🌀 Fractal Visualizer
 
 **Fract-ol** is a fractal visualizer, written in C using [MLX42](https://github.com/codam-coding-college/MLX42), a simple cross-platform graphics library running on GLFW and OpenGL.  
-The project is a part of 42 school curriculum
+The project is part of the 42 school curriculum
 
 ## ✨ Features
 
