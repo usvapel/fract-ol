@@ -1,7 +1,6 @@
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/usvapel/fract-ol/images/MLX42.png" alt="MLX42" width="40" height="40"/>
-</p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="40" height="40"/>
+
+![MLX42](https://img.shields.io/badge/MLX42-C%20Graphics-blue?style=flat-square)
 
 # 🌀 Fractal Visualizer
 
