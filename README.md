@@ -19,9 +19,9 @@ The project is a part of 42 school curriculum
 ## 📸 Preview
 
 <div style="display: flex; gap: 10px; align-items: center;">
-  <img src="./screenshot2.png" width="200" />
-  <img src="./screenshot4.png" width="200" />
-  <img src="./screenshot5.png" width="200" />
+  <img src="./images/mandelbrot.png" width="200" />
+  <img src="./images/burningship.png" width="200" />
+  <img src="./images/julia.png" width="200" />
 </div>
 
 <div style="
