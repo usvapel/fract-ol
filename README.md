@@ -1,5 +1,7 @@
-![C](https://img.shields.io/badge/C-language-00599C?style=flat)
-![MLX42](https://img.shields.io/badge/MLX42-OpenGL%2FGLFW-blue)
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/usvapel/usvapel/main/assets/icons/mlx42.png" alt="MLX42" width="30" height="40"/>
+</p>
 
 # 🌀 Fractal Visualizer
 
