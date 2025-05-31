@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/usvapel/fract-ol/images/mlx42.png" alt="MLX42" width="30" height="40"/>
+  <img src="https://raw.githubusercontent.com/usvapel/fract-ol/images/MLX42.png" alt="MLX42" width="40" height="40"/>
 </p>
 
 # 🌀 Fractal Visualizer
