@@ -1,6 +1,4 @@
 ![C](https://img.shields.io/badge/C-language-00599C?style=flat)
-
-
 ![MLX42](https://img.shields.io/badge/MLX42-OpenGL%2FGLFW-blue)
 
 # 🌀 Fractal Visualizer
