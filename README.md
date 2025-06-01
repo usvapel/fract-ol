@@ -46,7 +46,7 @@ The core of each fractal lies in an iterative function applied to each pixel map
 
 For the Burning Ship fractal, a slight modification is made: the real and imaginary components of the complex number are converted to their absolute values before squaring at each iteration, resulting in its characteristic shape.
 
-## ⚙Requirements
+## Requirements
 
 - macOS or Linux
 - Dependencies:
