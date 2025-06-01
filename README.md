@@ -51,8 +51,8 @@ For the **Burning Ship fractal**, a slight modification is made: the real and im
 - Linux
 - Dependencies:
   - [`CMake`](https://cmake.org/) – Cross-platform build system generator.
-  - [`GLFW`](https://www.glfw.org/) – Window and input library for OpenGL/Vulkan.
-  - [`OpenGL`](https://www.opengl.org/) – Cross-platform 2D/3D graphics API.
+  - [`GLFW`](https://www.glfw.org/) – Window and input library for OpenGL / Vulkan.
+  - [`OpenGL`](https://www.opengl.org/) – Cross-platform 2D / 3D graphics API.
 
 ## Installation
 
