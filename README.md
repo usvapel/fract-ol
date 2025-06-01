@@ -48,7 +48,7 @@ For the Burning Ship fractal, a slight modification is made: the real and imagin
 
 ## Requirements
 
-- macOS or Linux
+- Linux
 - Dependencies:
   - `cmake`
   - `glfw`
