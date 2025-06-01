@@ -4,7 +4,7 @@
 
 # Fractal Visualizer
 
-**Fract-ol** is a fractal visualizer, written in C using [MLX42](https://github.com/codam-coding-college/MLX42), a simple cross-platform graphics library running on GLFW and OpenGL.  
+**Fract-ol** is a fractal visualizer, written in C using [**MLX42**](https://github.com/codam-coding-college/MLX42), a simple cross-platform graphics library running on **GLFW** and **OpenGL**.  
 The project is part of the 42 school curriculum
 
 ## Features
@@ -40,11 +40,11 @@ The project is part of the 42 school curriculum
   <strong><em>Iteration Formula</em></strong><br>
 </div>
 
-The core of each fractal lies in an iterative function applied to each pixel mapped onto the complex plane. For the Mandelbrot set, the formula is:
+The core of each fractal lies in an iterative function applied to each pixel mapped onto the complex plane. For the **Mandelbrot set**, the formula is:
 
 ![Mandelbrot Equation](https://latex.codecogs.com/png.image?\dpi{150}&space;\color{White}z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi)
 
-For the Burning Ship fractal, a slight modification is made: the real and imaginary components of the complex number are converted to their absolute values before squaring at each iteration, resulting in its characteristic shape.
+For the **Burning Ship fractal**, a slight modification is made: the real and imaginary components of the complex number are converted to their **absolute** values before squaring at each iteration, resulting in its characteristic shape.
 
 ## Requirements
 
