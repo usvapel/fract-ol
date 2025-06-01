@@ -2,12 +2,12 @@
 
 ![MLX42](https://img.shields.io/badge/MLX42-C%20Graphics-blue?style=flat-square)
 
-# 🌀 Fractal Visualizer
+# Fractal Visualizer
 
 **Fract-ol** is a fractal visualizer, written in C using [MLX42](https://github.com/codam-coding-college/MLX42), a simple cross-platform graphics library running on GLFW and OpenGL.  
 The project is part of the 42 school curriculum
 
-## ✨ Features
+## Features
 
 - This application supports real-time rendering and interaction with a selection of well-known fractals:
   - Mandelbrot set
@@ -18,7 +18,7 @@ The project is part of the 42 school curriculum
   - Smooth zooming and panning
   - Dynamic color shifting
 
-## 📸 Preview
+## Preview
 
 <div style="display: flex; gap: 10px; align-items: center;">
   <img src="./images/mandelbrot.png" width="200" />
@@ -46,7 +46,7 @@ The core of each fractal lies in an iterative function applied to each pixel map
 
 For the Burning Ship fractal, a slight modification is made: the real and imaginary components of the complex number are converted to their absolute values before squaring at each iteration, resulting in its characteristic shape.
 
-## ⚙️ Requirements
+## ⚙Requirements
 
 - macOS or Linux
 - Dependencies:
@@ -54,7 +54,7 @@ For the Burning Ship fractal, a slight modification is made: the real and imagin
   - `glfw`
   - `OpenGL`
 
-## 🧰 Installation
+## Installation
 
 Clone the repo and build:
 
