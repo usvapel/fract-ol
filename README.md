@@ -1,11 +1,16 @@
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="40" height="40"/>
-
-![MLX42](https://img.shields.io/badge/MLX42-C%20Graphics-blue?style=flat-square)
+## Table of Contents
+- [Features](#features)
+- [Preview](#preview)
+- [Fractal Math](#fractal-math)
+- [Requirements](#requirements)
+- [Installation](#installation)
 
 # Fractal Visualizer
 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="30"/> ![MLX42](https://img.shields.io/badge/MLX42-C%20Graphics-blue?style=flat-square)
+
 **Fract-ol** is a fractal visualizer, written in C using [**MLX42**](https://github.com/codam-coding-college/MLX42), a simple cross-platform graphics library running on **GLFW** and **OpenGL**.  
-The project is part of the 42 school curriculum
+This project was developed as part of the 42 school curriculum.
 
 ## Features
 
@@ -13,19 +18,21 @@ The project is part of the 42 school curriculum
   - Mandelbrot set
   - Julia set
   - Burning Ship fractal
-- Additional interactive capabilities include:
+- Interactive features:
   - Real-time mouse interaction
   - Smooth zooming and panning
   - Dynamic color shifting
 
 ## Preview
 
-<div style="display: flex; gap: 10px; align-items: center;">
-  <img src="./images/mandelbrot.png" width="200" />
-  <img src="./images/burningship.png" width="200" />
-  <img src="./images/julia.png" width="200" />
-</div>
+<p align="center">
+  <img src="./images/mandelbrot.png" width="200"/>
+  <img src="./images/burningship.png" width="200"/>
+  <img src="./images/julia.png" width="200"/>
+</p>
 
+
+## Fractal Math
 <div style="
   background-color: #f6f8fa;
   padding: 20px 24px;
