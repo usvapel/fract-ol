@@ -26,9 +26,9 @@ This project was developed as part of the 42 school curriculum.
 ## Preview
 
 <p align="center">
-  <img src="./images/mandelbrot.png" width="200"/>
-  <img src="./images/burningship.png" width="200"/>
-  <img src="./images/julia.png" width="200"/>
+  <img src="./images/Mandelbrot.png" width="500"/>
+  <img src="./images/Burningship.png" width="500"/>
+  <img src="./images/Julia.png" width="500"/>
 </p>
 
 
