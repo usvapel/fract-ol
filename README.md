@@ -56,6 +56,8 @@ The core of each fractal lies in an iterative function applied to each pixel map
 
 $$\displaystyle\Huge z_{n+1}=z_n^2+C,\quad z_0=C,\quad C=a+bi$$
 
+*Note: This may not display properly on the GitHub mobile app.*
+
 </div><br>
 
 For the **Burning Ship fractal**, a slight modification is made: the real and imaginary components of the complex number are converted to their **absolute** values before squaring at each iteration, resulting in its characteristic shape.
