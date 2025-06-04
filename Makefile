@@ -66,6 +66,7 @@ COMPILED_COUNT	:=	0
 all:
 	@if [ -f $(NAME) ] && [ "$(NAME)" -nt $(word 1,$(sort $(wildcard $(SRC_DIR)/*.c))) ] && \
 		[ "$(NAME)" -nt $(LIBFT) ] && [ "$(NAME)" -nt $(MLX) ]; then \
+		echo "$(BOLD)$(YELLOW)🔄 $(NAME) is already up to date.$(RESET)"; \
 	else \
 		echo "$(BOLD)$(WHITE)🌀 Starting to build $(NAME)...$(RESET)"; \
 		$(MAKE) $(NAME) --no-print-directory; \
