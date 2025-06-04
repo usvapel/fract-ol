@@ -21,13 +21,7 @@ WHITE		:= $(shell tput setaf 7)
 RESET		:= $(shell tput sgr0)
 
 # Name target
-ifeq ($(MAKECMDGOALS),bonus)
-NAME_BONUS		:=	fractol_bonus
-else
-NAME			:=	fractol_standard
-endif
-
-PROGRAM_NAME	:=	fractol
+NAME	:=	fractol
 
 # Compiler flags
 CC				:=	cc
@@ -36,7 +30,6 @@ CFLAGS			:=	-Wextra -Wall -Werror
 # Directories
 OBJ_DIR			:=	obj
 SRC_DIR			:=	src
-SRC_B_DIR		:=	src_bonus
 
 # Dependencies tracking
 DEP_DIR			:=	$(OBJ_DIR)/.deps
@@ -57,55 +50,32 @@ LDFLAGS			:=	-L$(LIBFT_DIR) -lft -L$(MLX_PATH) -lmlx42 \
 
 # Include paths
 INC				:=	-I./include -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
-INC_BONUS		:=	-I./include_bonus -I./MLX42/include/MLX42 -I$(LIBFT_DIR)
 
 # Sources
 SRCS			:=	fractol.c color.c zoom.c utils.c init.c julia.c \
 					mandelbrot.c burningship.c keys.c julia_utils.c
 
-SRCS_BONUS		:=	fractol_bonus.c color_bonus.c zoom_bonus.c \
-					utils_bonus.c init_bonus.c julia_bonus.c \
-					mandelbrot_bonus.c burningship_bonus.c \
-					keys_bonus.c julia_utils_bonus.c
-
 # Objects
-ifeq ($(MAKECMDGOALS),bonus)
-OBJS_BONUS		:=	$(addprefix $(OBJ_DIR)/,$(SRCS_BONUS:.c=.o))
-TOTAL_SRCS		:=	$(words $(SRCS_BONUS))
-else
 OBJS			:=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 TOTAL_SRCS		:=	$(words $(SRCS))
-endif
-
-# Files to track build
-MARKER_STANDARD :=	.standard_build
-MARKER_BONUS	:=	.bonus_build
 
 # Calculating SRCS amount
 COMPILED_COUNT	:=	0
 
 # Default target / checks if rebuild is needed
 all:
-	@if [ -f $(MARKER_BONUS) ]; then \
-		echo "$(BOLD)$(BLUE)🧹 Cleaning bonus build...$(RESET)"; \
-		$(MAKE) -s clean; \
-	fi; \
-	if [ -f $(MARKER_STANDARD) ] 2>/dev/null; then \
+	if [ -f $(NAME) ] && $(OBJS) 2>/dev/null; then \
 		echo "$(BOLD)$(YELLOW)🔄 $(NAME) is already up to date.$(RESET)"; \
 	else \
 		echo "$(BOLD)$(WHITE)🌀 Starting to build $(NAME)...$(RESET)"; \
 		$(MAKE) $(NAME) --no-print-directory; \
-		touch $(MARKER_STANDARD); \
-		rm -f $(MARKER_BONUS) ; \
 		echo "$(BOLD)$(GREEN)✅ All components built successfully!$(RESET)"; \
 	fi
 
 # Main executable target - links all objects and libraries
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
 	@echo "$(BOLD)$(GREEN)🔗 Linking $(NAME)...$(RESET)"
-	@$(CC) $(CFLAGS) -o $(PROGRAM_NAME) $(OBJS) $(LDFLAGS) -O3 -march=native -ffast-math
-	@touch $(MARKER_STANDARD)
-	@rm -f $(MARKER_BONUS)
+	@$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS) -O3 -march=native -ffast-math
 	@echo "$(BOLD)$(GREEN)✅ $(NAME) successfully compiled!$(RESET)"
 
 # Create necessary directories if they don't exist
@@ -121,35 +91,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
 	@printf "🔧 [%3d%%] $(BOLD)$(BLUE)Compiling $<...$(RESET)\n" \
 		$(shell echo $$(($(COMPILED_COUNT)*100/$(TOTAL_SRCS))))
 	@$(CC) $(CFLAGS) $(DEPFLAGS) -O3 -march=native -ffast-math -c $< -o $@ $(INC)
-
-# Bonus target / checks if rebuild is needed
-bonus:
-	@if [ -f $(MARKER_STANDARD) ]; then \
-		echo "$(BOLD)$(BLUE)🧹 Cleaning standard build...$(RESET)"; \
-		$(MAKE) -s clean; \
-	fi; \
-	if [ -f $(MARKER_BONUS) ] 2>/dev/null; then \
-		echo "$(BOLD)$(YELLOW)🔄 $(NAME_BONUS) is already up to date.$(RESET)"; \
-	else \
-		echo "$(BOLD)$(WHITE)🌀 Starting to build $(NAME_BONUS)...$(RESET)"; \
-		$(MAKE) $(NAME_BONUS) MAKECMDGOALS=bonus --no-print-directory; \
-		touch $(MARKER_BONUS); \
-		rm -f $(MARKER_STANDARD); \
-		echo "$(BOLD)$(GREEN)✅ All components built successfully!$(RESET)"; \
-	fi
-
-$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT) $(MLX)	
-	@echo "$(BOLD)$(GREEN)🔗 Linking $(NAME_BONUS)...$(RESET)"
-	@$(CC) $(CFLAGS) -o $(PROGRAM_NAME) $(OBJS_BONUS) $(LDFLAGS) -O3 -march=native -ffast-math
-	@echo "$(BOLD)$(GREEN)✅ $(NAME_BONUS) Successfully compiled!$(RESET)"
-
-ifeq ($(MAKECMDGOALS),bonus)
-$(OBJ_DIR)/%.o: $(SRC_B_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
-	$(eval COMPILED_COUNT := $(shell echo $$(($(COMPILED_COUNT)+1))))
-	@printf "🔧 [%3d%%] $(BOLD)$(BLUE)Compiling $<...$(RESET)\n" \
-		$(shell echo $$(($(COMPILED_COUNT)*100/$(TOTAL_SRCS))))
-	@$(CC) $(CFLAGS) $(DEPFLAGS) -O3 -march=native -ffast-math -c $< -o $@ $(INC_BONUS)
-endif
 
 # Include auto-generated dependency files
 -include $(wildcard $(DEP_DIR)/*.d)
@@ -181,12 +122,9 @@ clean:
 
 # Remove everything including the executable
 fclean: clean
-	@echo "$(YELLOW)🧹 Removing $(PROGRAM_NAME)...$(RESET)"
-	@rm -rf $(PROGRAM_NAME)
-	@rm -f $(MARKER_BONUS)
-	@rm -f $(MARKER_STANDARD)
+	@echo "$(YELLOW)🧹 Removing $(NAME)...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
-	@echo "$(YELLOW)✅ $(PROGRAM_NAME) removed!$(RESET)"
+	@echo "$(YELLOW)✅ $(NAME) removed!$(RESET)"
 
 # Full rebuild from scratch
 re: fclean
@@ -194,5 +132,5 @@ re: fclean
 	@$(MAKE) all
 
 # Prevent intermediate files from being deleted
-.SECONDARY: $(OBJS) $(OBJS_BONUS)
-.PHONY: all clean fclean re bonus
+.SECONDARY: $(OBJS)
+.PHONY: all clean fclean re
