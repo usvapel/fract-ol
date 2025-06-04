@@ -49,11 +49,9 @@ This project was developed as part of the 42 school curriculum.
 
 The core of each fractal lies in an iterative function applied to each pixel mapped onto the complex plane. For the **Mandelbrot set**, the formula is:
 
-![Mandelbrot Equation](https://latex.codecogs.com/png.image?\dpi{150}&space;\color{White}z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi)
-
 <div align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\dpi{150}&space;z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi" />
-</div>
+  <img src="https://latex.codecogs.com/svg.latex?\dpi{150}&space;z_{n+1}=z_n^2+C,\quad&space;z_0=C,\quad&space;C=a+bi" width="400"/>
+</div><br>
 
 For the **Burning Ship fractal**, a slight modification is made: the real and imaginary components of the complex number are converted to their **absolute** values before squaring at each iteration, resulting in its characteristic shape.
 
