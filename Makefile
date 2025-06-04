@@ -64,8 +64,8 @@ COMPILED_COUNT	:=	0
 
 # Default target / checks if rebuild is needed
 all:
-	if [ -f $(NAME) ] && $(OBJS) 2>/dev/null; then \
-		echo "$(BOLD)$(YELLOW)🔄 $(NAME) is already up to date.$(RESET)"; \
+	@if [ -f $(NAME) ] && [ "$(NAME)" -nt $(word 1,$(sort $(wildcard $(SRC_DIR)/*.c))) ] && \
+		[ "$(NAME)" -nt $(LIBFT) ] && [ "$(NAME)" -nt $(MLX) ]; then \
 	else \
 		echo "$(BOLD)$(WHITE)🌀 Starting to build $(NAME)...$(RESET)"; \
 		$(MAKE) $(NAME) --no-print-directory; \
