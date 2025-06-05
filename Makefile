@@ -62,7 +62,7 @@ TOTAL_SRCS		:=	$(words $(SRCS))
 # Calculating SRCS amount
 COMPILED_COUNT	:=	0
 
-# check if program is up to date
+# Code to check if program is up to date, used in all target
 is_up_to_date = \
     [ -f $(NAME) ] && \
     [ "$(NAME)" -nt $(word 1,$(sort $(wildcard $(SRC_DIR)/*.c))) ] && \
