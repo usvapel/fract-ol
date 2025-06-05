@@ -65,10 +65,11 @@ COMPILED_COUNT	:=	0
 
 is_up_to_date = \
     [ -f $(NAME) ] && \
-    [ "$(NAME)" -nt $(word 1,$(sort $(wildcard $(SRC_DIR)/*.c)))) ] && \
+    [ "$(NAME)" -nt $(word 1,$(sort $(wildcard $(SRC_DIR)/*.c))) ] && \
     [ "$(NAME)" -nt $(LIBFT) ] && \
     [ "$(NAME)" -nt $(MLX) ]
 
+# Default target / checks if rebuild is needed
 all:
     @if $(is_up_to_date); then \
         echo "$(BOLD)$(YELLOW)🔄 $(NAME) is already up to date.$(RESET)"; \
@@ -77,18 +78,6 @@ all:
         $(MAKE) $(NAME) --no-print-directory; \
         echo "$(BOLD)$(GREEN)✅ All components built successfully!$(RESET)"; \
     fi
-
-
-# Default target / checks if rebuild is needed
-#all:
-#	@if [ -f $(NAME) ] && [ "$(NAME)" -nt $(word 1,$(sort $(wildcard $(SRC_DIR)/*.c))) ] && \
-#		[ "$(NAME)" -nt $(LIBFT) ] && [ "$(NAME)" -nt $(MLX) ]; then \
-#		echo "$(BOLD)$(YELLOW)🔄 $(NAME) is already up to date.$(RESET)"; \
-#	else \
-#		echo "$(BOLD)$(WHITE)🌀 Starting to build $(NAME)...$(RESET)"; \
-#		$(MAKE) $(NAME) --no-print-directory; \
-#		echo "$(BOLD)$(GREEN)✅ All components built successfully!$(RESET)"; \
-#	fi
 
 # Main executable target - links all objects and libraries
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
