@@ -56,7 +56,7 @@ The core of each fractal lies in an iterative function applied to each pixel map
 
 $$\displaystyle\Huge z_{n+1}=z_n^2+C,\quad z_0=C,\quad C=a+bi$$
 
-*Note: This may not display properly on the GitHub mobile app.*
+###### <small>Note: This may not display properly on the GitHub mobile app.</small>
 
 </div><br>
 
